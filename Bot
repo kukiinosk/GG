@@ -1,0 +1,54 @@
+import discord
+from discord.ext import commands
+import random
+
+intents = discord.Intents.default()
+intents = discord.Intents.all()
+
+bot = commands.Bot(command_prefix='!', intents=intents)
+
+@bot.event
+async def on_ready():
+    print(f'Bot is ready as {bot.user}')
+
+
+
+
+@bot.command()
+async def Try(ctx):
+  responses = ["Ne", "Ano"]
+  response = random.choice(responses)
+  await ctx.send(response)
+
+
+
+@bot.command()
+async def ck(ctx):
+  await ctx.send('CK:\n'
+     'VZOR\n'
+     '==========\n\n'
+     'Kdo:\n'
+     'Na koho: (IC jméno)\n'
+     'Důvod:\n'
+     'Kdy:\n'
+     'Fotku jako důkaz, že jste IC postavu zabili:\n\n'
+     '==========')
+
+
+@bot.command()
+async def frak(ctx):
+  await ctx.send('FRAKCE:\n'
+    '==========\n\n'
+    'Frakce:\n'
+    'Jméno frakce:\n'
+    'Kolik lidí na začátku:\n'
+    'Tvá aktivita na RP:\n'
+    'Zkušenosti:\n'
+    'Důvod:\n'
+    'Lore (Min. 4 věty, LORE FRAKCE NE VAŠÍ POSTAVY):')
+
+@bot.event
+async def on_ready():
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="💲C:RP💲"))
+    print(f'Logged in as {bot.user.name} - {bot.user.id}')
+bot.run('MTIyNDI4NTMzNjQ4NjgwNTUzNA.G5vKQn.Xu4SenhN9rprkEHHYC7cJhAYDLtAcQjtMlgg64')
